@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYS-POS | Plateforme de Gestion Resto, Bar & Hôtel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="sidebar">
+        <div class="logo">SYS-POS</div>
+        <div class="table-actions">
+            <button class="nav-btn active">Table 05</button>
+            <button class="nav-btn add-btn" onclick="addNewTable()">+</button>
+        </div>
+    </div>
+    <div id="main-content">
+        <div class="panel">
+            <div class="panel-header">
+                <h2>🍽️ Menu Établissement</h2>
+                <div class="user-badge">Serveuse : <strong id="user-name">Marie L. (#SRV04)</strong></div>
+            </div>
+            <div class="grid-products" id="products-container"></div>
+        </div>
+        <div class="panel" id="cart-panel">
+            <div class="panel-header">
+                <h2>🛒 Commande Active</h2>
+            </div>
+            <div class="cart-items" id="cart-items-container">
+                <div class="empty-cart-msg">Aucun produit sélectionné</div>
+            </div>
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total :</span>
+                    <span id="total-price">0.00 HTG</span>
+                </div>
+                <div class="payment-methods-grid">
+                    <button class="pay-btn btn-cash" onclick="processPayment('Cash')">💶 Cash / Espèces</button>
+                    <button class="pay-btn btn-moncash" onclick="processPayment('MonCash')">🔴 MonCash</button>
+                    <button class="pay-btn btn-natcash" onclick="processPayment('NatCash')">🔵 NatCash</button>
+                    <button class="pay-btn btn-clear" onclick="clearCart()">Vider le panier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="overlay">
+        <div class="modal">
+            <div class="modal-success-icon">✔</div>
+            <h3>Transaction Enregistrée avec Succès</h3>
+            <p class="modal-subtitle">Envoi de l'ordre d'impression à l'imprimante thermique...</p>
+            <div class="ticket-receipt" id="ticket-text"></div>
+            <button class="btn-close-modal" onclick="closeModal()">Fermer & Libérer la Table</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
